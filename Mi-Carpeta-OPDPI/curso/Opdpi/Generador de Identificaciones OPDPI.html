@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador ID ACUDEN - Logo de 250px a 500px</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .container { max-width: 900px; width: 100%; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .config-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; background: #fafafa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .input-box { display: flex; flex-direction: column; margin-bottom: 10px; }
+        label { font-size: 13px; font-weight: bold; margin-bottom: 5px; color: #444; }
+        input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        
+        /* DISEÑO DEL ID VERTICAL */
+        #id-card-canvas {
+            width: 350px;
+            height: 550px;
+            margin: 20px auto;
+            position: relative;
+            background-color: #ffffff; /* Fondo blanco base fijo */
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #bbb;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Arte/Logo Superior IZQUIERDA Ajustable */
+        #bg-container {
+            position: absolute;
+            top: 0px;       
+            left: 0px;      
+            width: 250px;   /* Conserva los 250px iniciales */
+            display: block;
+        }
+        #bg-art {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Foto de Empleado como Background Container para evitar cortes en html2canvas */
+        #photo-container {
+            position: absolute;
+            top: 60px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 220px;
+            border: 5px solid #004a99;
+            background-color: #eee;
+            background-size: cover;       
+            background-position: center;  
+            background-repeat: no-repeat;
+            z-index: 2; 
+        }
+
+        /* Información Ajustable */
+        #info-container {
+            position: absolute;
+            top: 310px; 
+            width: 100%;
+            text-align: center;
+            padding: 0 15px;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        .emp-name { font-size: 24px; font-weight: bold; color: #004a99; margin: 0; text-transform: uppercase; }
+        .emp-pos { font-size: 18px; font-weight: 500; color: #444; margin: 8px 0; border-top: 1px solid #004a99; display: inline-block; padding-top: 5px; }
+
+        .botones { margin-top: 20px; display: flex; gap: 10px; }
+        button { flex: 1; padding: 12px; cursor: pointer; font-weight: bold; border-radius: 5px; border: none; transition: 0.2s; }
+        .btn-p { background: #6c757d; color: white; }
+        .btn-d { background: #004a99; color: white; }
+        button:hover { opacity: 0.8; }
+        
+        #preview-box { margin-top: 20px; text-align: center; display: none; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="text-align:center; color:#004a99;">Generador de ID ACUDEN</h2>
+    
+    <div class="config-grid">
+        <div class="column">
+            <div class="input-box">
+                <label>1. Arte Superior Izquierdo (Logo/Fondo):</label>
+                <input type="file" id="bgInput" accept="image/*" onchange="cargarBG(event)">
+            </div>
+            <div class="input-box">
+                <label>🔍 Tamaño del ARTE (Ancho):</label>
+                <input type="range" id="bgSliderSize" min="250" max="500" value="250" oninput="ajustarPosiciones()">
+            </div>
+            <div class="input-box">
+                <label>↔️ Posición ARTE (Horizontal):</label>
+                <input type="range" id="bgSliderX" min="-250" max="250" value="0" oninput="ajustarPosiciones()">
+            </div>
+            <div class="input-box">
+                <label>↕️ Posición ARTE (Vertical):</label>
+                <input type="range" id="bgSliderY" min="-250" max="250" value="0" oninput="ajustarPosiciones()">
+            </div>
+        </div>
+        <div class="column">
+            <div class="input-box">
+                <label>2. Foto del Empleado:</label>
+                <input type="file" id="photoInput" accept="image/*" onchange="convertirFotoBase64(event)">
+            </div>
+            <div class="input-box">
+                <label>Nombre:</label>
+                <input type="text" id="inNombre" oninput="actualizar()">
+            </div>
+            <div class="input-box">
+                <label>Posición:</label>
+                <input type="text" id="inPuesto" oninput="actualizar()">
+            </div>
+            <div class="input-box">
+                <label>↕️ Posición FOTO:</label>
+                <input type="range" id="photoSlider" min="10" max="300" value="60" oninput="ajustarPosiciones()">
+            </div>
+            <div class="input-box">
+                <label>↕️ Posición TEXTO:</label>
+                <input type="range" id="textSlider" min="200" max="480" value="310" oninput="ajustarPosiciones()">
+            </div>
+        </div>
+    </div>
+
+    <div id="id-card-canvas">
+        <div id="bg-container">
+            <img id="bg-art" src="" alt="">
+        </div>
+        
+        <div id="photo-container"></div>
+        
+        <div id="info-container">
+            <p class="emp-name" id="outNombre">Nombre Completo</p>
+            <p class="emp-pos" id="outPuesto">Posición / Puesto</p>
+        </div>
+    </div>
+
+    <div class="botones">
+        <button class="btn-p" onclick="generarPreview()">Vista Previa</button>
+        <button class="btn-d" onclick="descargarID()">Descargar ID Final</button>
+    </div>
+
+    <div id="preview-box">
+        <img id="preview-img" style="max-width:250px; border:2px solid green; border-radius:10px;">
+        <p style="color:green; font-weight:bold;">Imagen generada con éxito</p>
+    </div>
+</div>
+
+<script>
+    // Cargar Arte/Fondo Superior en Base64
+    function cargarBG(event) {
+        const reader = new FileReader();
+        reader.onload = function() { 
+            document.getElementById('bg-art').src = reader.result; 
+        };
+        if(event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
+    }
+
+    // Convertir foto a Base64 e inyectarla como fondo de CSS para evitar bugs de renderizado
+    function convertirFotoBase64(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const container = document.getElementById('photo-container');
+            container.style.backgroundImage = `url(${reader.result})`; 
+        };
+        if(event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
+    }
+
+    // Actualizar Texto
+    function actualizar() {
+        document.getElementById('outNombre').innerText = document.getElementById('inNombre').value.toUpperCase() || "Nombre Completo";
+        document.getElementById('outPuesto').innerText = document.getElementById('inPuesto').value.toUpperCase() || "Posición / Puesto";
+    }
+
+    // Sliders de Posicionamiento y Tamaño
+    function ajustarPosiciones() {
+        // Control de Tamaño y Posición del Arte (Esquina superior izquierda)
+        const bgContainer = document.getElementById('bg-container');
+        bgContainer.style.width = document.getElementById('bgSliderSize').value + "px";
+        bgContainer.style.left = document.getElementById('bgSliderX').value + "px";
+        bgContainer.style.top = document.getElementById('bgSliderY').value + "px";
+        
+        // Control de Foto y Texto
+        document.getElementById('photo-container').style.top = document.getElementById('photoSlider').value + "px";
+        document.getElementById('info-container').style.top = document.getElementById('textSlider').value + "px";
+    }
+
+    // Preview
+    function generarPreview() {
+        const area = document.getElementById('id-card-canvas');
+        html2canvas(area, { scale: 2, useCORS: true, logging: true }).then(canvas => {
+            const img = document.getElementById('preview-img');
+            img.src = canvas.toDataURL("image/jpeg", 0.9);
+            document.getElementById('preview-box').style.display = "block";
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+    }
+
+    // Descarga Final Correcta sin cortes
+    function descargarID() {
+        const area = document.getElementById('id-card-canvas');
+        const nombre = document.getElementById('inNombre').value.replace(/\s+/g, '_') || "ID";
+        html2canvas(area, { scale: 3, useCORS: true, logging: true }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = `ID_ACUDEN_${nombre}.jpg`;
+            link.href = canvas.toDataURL("image/jpeg", 1.0);
+            link.click();
+        });
+    }
+</script>
+
+</body>
+</html>
