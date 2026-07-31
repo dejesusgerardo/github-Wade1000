@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="user-info">
+            <span>Bienvenido/a, <strong id="user-name-display">Usuario</strong></span>
+            <span id="user-role-badge" class="badge">Rol: Usuario</span>
+        </div>
+        <div>
+            <!-- Botón para regresar al admin.html si quien navega es el Admin -->
+            <button id="btn-back-to-admin" class="btn btn-secondary hidden" onclick="window.location.href='admin.html'">Volver a Admin</button>
+            <button class="btn btn-logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-header">
+            <h1>Menú Principal (generico.html)</h1>
+            <p>Bienvenido al portal general de servicios.</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>📊 Reportes Generales</h3>
+                <p>Acceso a métricas del sistema e informes de actividad diaria.</p>
+            </div>
+            <div class="card">
+                <h3>📁 Mis Documentos</h3>
+                <p>Consulte y descargue sus archivos guardados en el perfil de trabajo.</p>
+            </div>
+            <div class="card">
+                <h3>⚙️ Configuración de Cuenta</h3>
+                <p>Actualización de información personal y preferencias de la cuenta.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Proteger esta página: permite cualquier usuario con sesión activa
+        protegerPagina("cualquiera");
+    </script>
+</body>
+</html>
