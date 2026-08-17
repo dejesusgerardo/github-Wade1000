@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Práctica JavaScript - Rúbrica 6.1</title>
+    <!-- Vinculación del archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 
+      ==========================================================================
+      CARACTERÍSTICAS PRINCIPALES DE LA ESTRUCTURA DE HTML5 (CUMPLIMIENTO DE RÚBRICA):
+      - <!DOCTYPE html>: Declaración de estándares de HTML5.
+      - <html lang="es">: Elemento raíz que especifica el idioma.
+      - <head>: Metadatos, título y vinculación con la hoja de estilos CSS.
+      - <body>: Cuerpo visual e interactivo de la aplicación.
+      - <script src="...">: Carga de script externo con la lógica interactiva.
+      ==========================================================================
+    -->
+
+    <div class="container">
+        <header>
+            <h1>Práctica de Laborarorio Tarea 6.1</h1>
+            <h1>WADE 1000 1ONL</h1>
+            <h1>Gerardo De Jesus  NorthBridge University</h1>
+            <div class="image-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo" class="js-logo">
+            </div>
+            <p>Interactúa con los controles a continuación para probar visualmente cada                   criterio de la rúbrica en pantalla(F12).</p>
+            <p>y en la Consola del Navegador (F12).</p>
+
+        </header>
+
+        <main>
+            <!-- Panel de Controles Interáctivos por Criterio -->
+            <section class="card">
+                <h2>1. Condicionales (if / else if / else)</h2>
+                <div class="control-group">
+                    <label for="inputNota">Ingresa una nota (0-100):</label>
+                    <input type="number" id="inputNota" value="85" min="0" max="100">
+                    <button onclick="probarCondicionalUI()">Evaluar Nota</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>2. Bucles e Iteración (for / while / do...while)</h2>
+                <div class="control-group">
+                    <button onclick="probarBuclesUI()">Ejecutar Bucles</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>3. Funciones Específicas (Promedio)</h2>
+                <div class="control-group">
+                    <label for="inputNotas">Notas separadas por coma:</label>
+                    <input type="text" id="inputNotas" value="85, 90, 78, 92">
+                    <button onclick="probarFuncionUI()">Calcular Promedio</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>4. Alcance (Scope) y Clausuras (Closures)</h2>
+                <div class="control-group">
+                    <button onclick="probarScopeUI()">Demostrar Scope</button>
+                    <button onclick="probarClosureUI()">Probar Clausura (Contador++)</button>
+                </div>
+            </section>
+
+            <!-- Consola Visual en la Página Web -->
+            <section class="console-card">
+                <div class="console-header">
+                    <span>Consola Visual de Salida</span>
+                    <button onclick="limpiarConsolaUI()" class="btn-clear">Limpiar Pantalla</button>
+                </div>
+                <div id="outputConsole" class="console-body">
+                    <p class="system-msg">> Inicia la prueba presionando cualquiera de los botones de arriba...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Enlace al archivo JavaScript externo -->
+    <script src="app.js"></script>
+</body>
+</html>
