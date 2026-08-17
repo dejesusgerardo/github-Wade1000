@@ -2,79 +2,58 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- REQUISITO ADICIONAL: Diseño responsivo (meta tag viewport) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio | Mi Portafolio</title>
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <!-- REQUISITO ADICIONAL: Personalización de estilos CSS -->
+  <!-- Estilos Personalizados -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-  <!-- ==========================================
-       PÁGINA DE INICIO - REQUISITO 1:
-       Barra de navegación Bootstrap con al menos tres enlaces
-       ========================================== -->
+  <!-- Navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand text-info" href="index.html"><i class="bi bi-code-slash me-2"></i>DeJesus & Associated</a>
+      <a class="navbar-brand text-info" href="index.html"><i class="bi bi-code-slash me-2"></i>DevStudio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <!-- Enlace 1 -->
           <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-          <!-- Enlace 2 -->
           <li class="nav-item"><a class="nav-link" href="portafolio.html">Portafolio</a></li>
-          <!-- Enlace 3 -->
           <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ==========================================
-       PÁGINA DE INICIO - REQUISITO 2:
-       Encabezado atractivo con imagen de fondo y título
-       ========================================== -->
+  <!-- Encabezado / Hero Section -->
   <header class="hero-header text-center">
     <div class="container">
       <h1 class="display-3 fw-bold mb-3">Diseño & Desarrollo Web</h1>
-      <h1 class="display-3 fw-bold mb-3">WADE 1000L 1onl Tarea 5-1</h1>
       <p class="lead mb-4">Transformando ideas complejas en soluciones digitales elegantes y eficientes.</p>
-      
-      <!-- ==========================================
-           PÁGINA DE INICIO - REQUISITO 4:
-           Llamado a la acción (botón/enlace) a la página de contacto
-           ========================================== -->
       <a href="contacto.html" class="btn btn-accent btn-lg px-4 shadow">Contáctame Ahora</a>
     </div>
   </header>
 
-  <!-- ==========================================
-       PÁGINA DE INICIO - REQUISITO 3:
-       Sección "Acerca de mí" con información ficticia
-       ========================================== -->
+  <!-- Sección Acerca de Mí -->
   <main class="container my-5 my-lg-6">
-    <!-- REQUISITO ADICIONAL: Clases de Bootstrap para diseño responsivo -->
     <div class="row align-items-center g-5">
       <div class="col-md-5 text-center">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" 
-             alt="Foto de perfil de Alexa" 
+             alt="Foto de perfil de Alex" 
              class="img-fluid rounded-circle shadow-lg" 
              style="max-width: 280px; height: 280px; object-fit: cover;">
       </div>
       <div class="col-md-7">
-        <h2 class="fw-bold mb-3">¡Hola! Soy Alexa Rivera</h2>
-        <p class="text-muted fs-5">Desarrolladora Web Full Stack & Diseñador UI/UX</p>
+        <h2 class="fw-bold mb-3">¡Hola! Soy Alex Rivera</h2>
+        <p class="text-muted fs-5">Desarrollador Web Full Stack & Diseñador UI/UX</p>
         <p>Con más de 5 años de experiencia creando soluciones digitales para pequeñas empresas y startups. Me apasiona el código limpio, las interfaces intuitivas y el desarrollo responsivo optimizado para una excelente experiencia de usuario.</p>
         <div class="mt-4">
           <a href="portafolio.html" class="btn btn-outline-primary me-2">Ver Proyectos</a>
-          <!-- Reitera llamado a la acción a contacto -->
           <a href="contacto.html" class="btn btn-primary">Iniciar Proyecto</a>
         </div>
       </div>

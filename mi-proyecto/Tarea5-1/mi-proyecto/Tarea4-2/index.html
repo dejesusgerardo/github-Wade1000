@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panadería y Repostería La Primera</title>
+    <!-- Vinculación del archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         VENTAJAS Y COMPARACIÓN DE LA ESTRUCTURA HTML5:
+         1. Semántica Mejorada: Sustituye el uso masivo de etiquetas <div> por 
+            etiquetas con significado directo (<header>, <nav>, <main>, <section>, <article>, <footer>).
+         2. Accesibilidad: Permite que tecnologías asistivas (como lectores de pantalla) 
+            identifiquen fácilmente la estructura de la página.
+         3. SEO y Indexación: Los motores de búsqueda comprenden la jerarquía y relevancia 
+            del contenido comercial.
+         4. Multimedia Nativa: Incorpora las etiquetas <video> y <audio> eliminando la 
+            necesidad de complementos o reproductores externos.
+         ============================================================ -->
+
+    <!-- Encabezado Principal y Menú de Navegación Fijo -->
+    <header>
+        <div class="header-container">
+            <h1>Panadería y Repostería La Primera</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Página 1: Inicio</a></li>
+                    <li><a href="#servicios">Página 2: Servicios y Menú</a></li>
+                    <li><a href="#multimedia">Página 3: Multimedia HTML5</a></li>
+                    <li><a href="#ventajas">Página 4: Ventajas de HTML5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+
+        <!-- PÁGINA 1: INICIO -->
+        <section id="inicio" class="page-section">
+            <div class="card">
+                <h2>Página 1: Bienvenido a Panadería y Repostería La Primera</h2>
+                <p class="subtitle">Sabor artesanal en cada bocado</p>
+                
+                <article>
+                    <h3>Nuestra Propuesta</h3>
+                    <p>
+                        Ofrecemos el pan más fresco, la repostería más fina y las mejores opciones de 
+                        desayunos y almuerzos preparados al instante para toda la familia.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Compromiso de Calidad</h3>
+                    <p>
+                        Horneamos diariamente utilizando ingredientes seleccionados de la más alta calidad 
+                        para garantizar una experiencia gastronómica única.
+                    </p>
+                </article>
+
+                <a href="#servicios" class="btn-next">Ir a la siguiente página: Servicios y Menú &rarr;</a>
+            </div>
+        </section>
+
+        <!-- PÁGINA 2: SERVICIOS Y MENÚ -->
+        <section id="servicios" class="page-section">
+            <div class="card">
+                <h2>Página 2: Nuestros Servicios y Menú</h2>
+                <p>Conoce la variedad de productos que tenemos disponibles todos los días:</p>
+
+                <ul class="menu-list">
+                    <li>
+                        <strong>🍞 Panadería:</strong> 
+                        Pan criollo, pan sobado, pan de agua y variedades artesanales recién horneadas.
+                    </li>
+                    <li>
+                        <strong>🍰 Repostería:</strong> 
+                        Bizcochos personalizables, tornillos, mallorcas, flanes y repostería fina.
+                    </li>
+                    <li>
+                        <strong>☕ Desayunos:</strong> 
+                        Huevos al gusto, sándwiches de jamón y queso, tostadas francesas y café recién colado.
+                    </li>
+                    <li>
+                        <strong>🍽️ Almuerzos:</strong> 
+                        Menú del día con platos criollos, carnes, sopas y complementos variados.
+                    </li>
+                </ul>
+
+                <a href="#multimedia" class="btn-next">Ir a la siguiente página: Multimedia &rarr;</a>
+            </div>
+        </section>
+
+        <!-- PÁGINA 3: MULTIMEDIA (NATIVO HTML5) -->
+        <section id="multimedia" class="page-section">
+            <div class="card">
+                <h2>Página 3: Experiencia Multimedia (HTML5)</h2>
+                <p>Demostración de las etiquetas multimedia nativas de HTML5 enriquecidas con diseño CSS.</p>
+
+                <div class="media-grid">
+                    <article class="media-box">
+                        <h3>Demostración de Video</h3>
+                        <p>Proceso de preparación y horneado artesanal:</p>
+                        <video controls width="320" height="240">
+                            <source src="video-panaderia.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video de HTML5.
+                        </video>
+                    </article>
+
+                    <article class="media-box">
+                        <h3>Demostración de Audio</h3>
+                        <p>Ambiente y sonido de nuestra cocina en vivo:</p>
+                        <audio controls>
+                            <source src="audio-panaderia.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio de HTML5.
+                        </audio>
+                    </article>
+                </div>
+
+                <a href="#ventajas" class="btn-next">Ir a la siguiente página: Ventajas de HTML5 &rarr;</a>
+            </div>
+        </section>
+
+        <!-- PÁGINA 4: VENTAJAS DE HTML5 -->
+        <section id="ventajas" class="page-section">
+            <div class="card">
+                <h2>Página 4: Comparación y Ventajas de HTML5</h2>
+                <p>
+                    En el desarrollo de esta estructura para <strong>Panadería y Repostería La Primera</strong>, 
+                    la implementación de HTML5 ofrece las siguientes ventajas frente a versiones previas:
+                </p>
+
+                <ol class="advantages-list">
+                    <li>
+                        <strong>Estructuración Semántica:</strong> El uso de <code>&lt;header&gt;</code>, 
+                        <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, 
+                        <code>&lt;article&gt;</code> y <code>&lt;footer&gt;</code> organiza el contenido por su significado real.
+                    </li>
+                    <li>
+                        <strong>Soporte Multimedia Integrado:</strong> Las etiquetas <code>&lt;video&gt;</code> y 
+                        <code>&lt;audio&gt;</code> permiten la reproducción directa en cualquier navegador estándar.
+                    </li>
+                    <li>
+                        <strong>Compatibilidad y Estándar Abierto:</strong> HTML5 es el estándar universal 
+                        mantenido por la W3C y WHATWG, asegurando compatibilidad en computadoras y dispositivos móviles.
+                    </li>
+                </ol>
+
+                <p class="external-link-container">
+                    Para consultar más información sobre la sintaxis y documentación oficial, accede a: 
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noopener">MDN Web Docs - HTML5</a>.
+                </p>
+
+                <a href="#inicio" class="btn-top">&uarr; Volver al inicio (Página 1)</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 Panadería y Repostería La Primera | Proyecto de Laboratorio HTML5 & CSS3 en GitHub</p>
+    </footer>
+
+</body>
+</html>

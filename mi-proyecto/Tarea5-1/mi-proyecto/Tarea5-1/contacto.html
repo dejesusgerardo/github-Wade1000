@@ -13,7 +13,7 @@
   <!-- Navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand text-info" href="index.html"><i class="bi bi-code-slash me-2"></i>DeJesus & Associated</a>
+      <a class="navbar-brand text-info" href="index.html"><i class="bi bi-code-slash me-2"></i>DevStudio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -27,6 +27,7 @@
     </div>
   </nav>
 
+  <!-- Sección Principal -->
   <main class="container my-5">
     <div class="row g-5">
       
@@ -34,26 +35,20 @@
       <div class="col-lg-7">
         <h2 class="fw-bold mb-4">Mándame un mensaje</h2>
         
-        <!-- ==========================================
-             PÁGINA DE CONTACTO - REQUISITO 1 & 2:
-             Formulario ficticio con validación de Bootstrap (.needs-validation y novalidate)
-             ========================================== -->
+        <!-- Formulario con validación Bootstrap -->
         <form class="needs-validation" novalidate>
-          <!-- Campo 1: Nombre -->
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre Completo</label>
             <input type="text" class="form-control" id="nombre" placeholder="Ej. Ana García" required>
             <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
           </div>
 
-          <!-- Campo 2: Correo Electrónico -->
           <div class="mb-3">
             <label for="email" class="form-label">Correo Electrónico</label>
             <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
             <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
           </div>
 
-          <!-- Campo 3: Mensaje -->
           <div class="mb-3">
             <label for="mensaje" class="form-label">Mensaje</label>
             <textarea class="form-control" id="mensaje" rows="5" placeholder="Escribe tu consulta aquí..." required></textarea>
@@ -64,15 +59,11 @@
         </form>
       </div>
 
-      <!-- ==========================================
-           PÁGINA DE CONTACTO - REQUISITO 3:
-           Información de contacto adicional (Email y teléfono ficticios)
-           ========================================== -->
+      <!-- Columna Información de Contacto -->
       <div class="col-lg-5">
         <div class="bg-light p-4 rounded-3 shadow-sm border">
           <h3 class="fw-bold mb-4">Información Directa</h3>
           
-          <!-- Correo ficticio -->
           <div class="d-flex align-items-start mb-3">
             <i class="bi bi-envelope-fill text-primary fs-4 me-3"></i>
             <div>
@@ -81,7 +72,6 @@
             </div>
           </div>
 
-          <!-- Teléfono ficticio -->
           <div class="d-flex align-items-start mb-3">
             <i class="bi bi-telephone-fill text-primary fs-4 me-3"></i>
             <div>
@@ -119,7 +109,7 @@
     </div>
   </footer>
 
-  <!-- JS para activar la validación nativa de Bootstrap -->
+  <!-- Script para la activación de la validación Bootstrap -->
   <script>
     (() => {
       'use strict'

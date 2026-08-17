@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control de Acceso</title>
+    <!-- Vinculación del archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- =======================================================
+         PANTALLA 1: FORMULARIO DE LOGIN (INICIO DE SESIÓN)
+         ======================================================= -->
+    <div id="login-screen" class="screen active">
+        <div class="card login-card">
+            <h2>Control de Acceso</h2>
+            <p class="subtitle">Ingrese sus credenciales para continuar</p>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" placeholder="Ej. admin" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </form>
+
+            <div id="login-error" class="error-message"></div>
+        </div>
+    </div>
+
+
+    <!-- =======================================================
+         PANTALLA 2: MENÚ DE ADMINISTRADOR (ADMIN)
+         ======================================================= -->
+    <div id="admin-screen" class="screen">
+        <header class="top-bar">
+            <div class="user-info">
+                <span>Bienvenido, Administrator (<strong id="admin-name-display">Admin</strong>)</span>
+                <span class="badge badge-admin">Rol: Administrador</span>
+            </div>
+            <button class="btn btn-logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </header>
+
+        <main class="container">
+            <div class="dashboard-header">
+                <h1>Panel de Control del Administrador</h1>
+                <p>Seleccione el entorno al que desea acceder:</p>
+            </div>
+
+            <!-- Selector de Menú para el Administrador -->
+            <div class="card-grid">
+                <div class="card interactive-card" onclick="mostrarSeccionAdmin('menu-especial')">
+                    <h3>⚙️ Menú Especial de Administración</h3>
+                    <p>Gestión de usuarios del sistema, registro de nuevos accesos y asignación de roles.</p>
+                </div>
+
+                <div class="card interactive-card" onclick="irAMenuGenerico()">
+                    <h3>📋 Menú Genérico</h3>
+                    <p>Acceso a la vista estándar de usuario con los módulos generales del sistema.</p>
+                </div>
+            </div>
+
+            <!-- Sección Especial de Registro de Usuarios (Oculta por defecto) -->
+            <div id="menu-especial" class="section-container hidden">
+                <hr class="divider">
+                <h2>Gestión de Usuarios - Crear Nuevo Usuario</h2>
+                
+                <form id="register-form" class="form-grid">
+                    <div class="form-group">
+                        <label for="reg-nombre">Nombre Completo:</label>
+                        <input type="text" id="reg-nombre" placeholder="Juan Pérez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-correo">Correo Electrónico:</label>
+                        <input type="email" id="reg-correo" placeholder="juan@ejemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-usuario">Nombre de Usuario (Login):</label>
+                        <input type="text" id="reg-usuario" placeholder="jperez" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-password">Contraseña:</label>
+                        <input type="password" id="reg-password" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-rol">Rol asignado:</label>
+                        <select id="reg-rol" required>
+                            <option value="usuario">Usuario Estándar</option>
+                            <option value="operador">Operador de Sistema</option>
+                            <option value="analista">Analista de Datos</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-success">Registrar Usuario</button>
+                    </div>
+                </form>
+
+                <div id="register-message" class="info-message"></div>
+
+                <!-- Tabla de Usuarios Registrados -->
+                <div class="table-container">
+                    <h3>Usuarios Registrados en el Sistema</h3>
+                    <table id="users-table">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body">
+                            <!-- Se llena dinámicamente con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- =======================================================
+         PANTALLA 3: MENÚ GENÉRICO (ACCESO GENERAL)
+         ======================================================= -->
+    <div id="generic-screen" class="screen">
+        <header class="top-bar">
+            <div class="user-info">
+                <span>Bienvenido/a, <strong id="user-name-display">Usuario</strong></span>
+                <span id="user-role-badge" class="badge">Rol: Usuario</span>
+            </div>
+            <div>
+                <!-- Botón visible solo si quien navega aquí es un Administrador -->
+                <button id="btn-back-to-admin" class="btn btn-secondary hidden" onclick="volverAAdmin()">Volver al Panel Admin</button>
+                <button class="btn btn-logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <main class="container">
+            <div class="dashboard-header">
+                <h1>Menú Principal del Sistema</h1>
+                <p>Bienvenido al portal general de servicios y consultas.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>📊 Reportes Generales</h3>
+                    <p>Acceso a métricas del sistema e informes de actividad diaria.</p>
+                </div>
+                <div class="card">
+                    <h3>📁 Mis Documentos</h3>
+                    <p>Consulte y descargue sus archivos guardados en el perfil de trabajo.</p>
+                </div>
+                <div class="card">
+                    <h3>⚙️ Configuración de Cuenta</h3>
+                    <p>Actualización de información personal y preferencias de la cuenta.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Vinculación del archivo JavaScript con la lógica -->
+    <script src="script.js"></script>
+</body>
+</html>

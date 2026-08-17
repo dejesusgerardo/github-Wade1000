@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panadería y Repostería La Primera</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Fijo con Estado del Local y Carrito -->
+    <header>
+        <div class="header-container">
+            <div class="brand">
+                <h1>Panadería y Repostería La Primera</h1>
+                <!-- Indicador de estado en tiempo real con JS -->
+                <span id="business-status" class="status-badge">Cargando estado...</span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#servicios" class="nav-link">Menú & Pedidos</a></li>
+                    <li><a href="#calculadora" class="nav-link">Bizcocho Personalizado</a></li>
+                    <li><a href="#multimedia" class="nav-link">Multimedia</a></li>
+                    <li><a href="#ventajas" class="nav-link">Ventajas HTML5</a></li>
+                </ul>
+            </nav>
+
+            <!-- Botón flotante de carrito en la navegación -->
+            <button id="cart-btn" class="cart-btn">
+                🛒 Mi Pedido (<span id="cart-count">0</span>)
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PÁGINA 1: INICIO -->
+        <section id="inicio" class="page-section">
+            <div class="card">
+                <h2>Bienvenido a La Primera</h2>
+                <p class="subtitle">Sabor artesanal en cada bocado</p>
+                
+                <article>
+                    <h3>Nuestra Propuesta</h3>
+                    <p>Ofrecemos el pan más fresco, la repostería más fina y las mejores opciones de desayunos y almuerzos preparados al instante.</p>
+                </article>
+
+                <article>
+                    <h3>Compromiso de Calidad</h3>
+                    <p>Horneamos diariamente utilizando ingredientes seleccionados de la más alta calidad.</p>
+                </article>
+
+                <a href="#servicios" class="btn-next">Ir al Menú e Interactuar &rarr;</a>
+            </div>
+        </section>
+
+        <!-- PÁGINA 2: SERVICIOS, MENÚ Y CARRITO -->
+        <section id="servicios" class="page-section">
+            <div class="card">
+                <h2>Nuestros Servicios y Menú Interactivo</h2>
+                <p>Busca, filtra e interactúa agregando productos a tu pedido en tiempo real:</p>
+
+                <!-- Buscador en tiempo real -->
+                <div class="search-container">
+                    <input type="text" id="menu-search" placeholder="🔍 Buscar producto (ej. Mallorca, Flan, Café)...">
+                </div>
+
+                <!-- Botones de Filtro -->
+                <div class="filter-container">
+                    <button class="btn-filter active" data-category="todos">Todos</button>
+                    <button class="btn-filter" data-category="panaderia">🍞 Panadería</button>
+                    <button class="btn-filter" data-category="reposteria">🍰 Repostería</button>
+                    <button class="btn-filter" data-category="desayunos">☕ Desayunos</button>
+                    <button class="btn-filter" data-category="almuerzos">🍽️ Almuerzos</button>
+                </div>
+
+                <!-- Ítems del menú con precios, vista previa y botón de agregar -->
+                <ul class="menu-list" id="menu-list">
+                    <li class="menu-item" data-category="panaderia" data-name="Pan Criollo Recién Horneado" data-price="3.50">
+                        <div class="item-info">
+                            <strong>🍞 Pan Criollo Recién Horneado</strong>
+                            <span class="price">$3.50 / bolsa</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn-preview" onclick="openPreview('Pan Criollo', '$3.50', 'Pan artesanal suave y crujiente, recién horneado por la mañana.')">👁️ Ver</button>
+                            <button class="btn-add-cart" onclick="addToCart('Pan Criollo Recién Horneado', 3.50)">+ Agregar</button>
+                        </div>
+                    </li>
+
+                    <li class="menu-item" data-category="reposteria" data-name="Mallorcas Glaseadas y Flan" data-price="2.75">
+                        <div class="item-info">
+                            <strong>🍰 Mallorcas y Repostería Fina</strong>
+                            <span class="price">$2.75 c/u</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn-preview" onclick="openPreview('Mallorcas Glaseadas', '$2.75', 'Mallorcas esponjosas espolvoreadas con azúcar dominó.')">👁️ Ver</button>
+                            <button class="btn-add-cart" onclick="addToCart('Mallorca Glaseada', 2.75)">+ Agregar</button>
+                        </div>
+                    </li>
+
+                    <li class="menu-item" data-category="desayunos" data-name="Café Colado y Sándwiches" data-price="5.25">
+                        <div class="item-info">
+                            <strong>☕ Combo Desayuno Criollo</strong>
+                            <span class="price">$5.25</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn-preview" onclick="openPreview('Combo Desayuno', '$5.25', 'Café 100% de Puerto Rico colado con sándwich de jamón, queso y huevo.')">👁️ Ver</button>
+                            <button class="btn-add-cart" onclick="addToCart('Combo Desayuno Criollo', 5.25)">+ Agregar</button>
+                        </div>
+                    </li>
+
+                    <li class="menu-item" data-category="almuerzos" data-name="Almuerzo Criollo del Día" data-price="8.99">
+                        <div class="item-info">
+                            <strong>🍽️ Almuerzo Criollo del Día</strong>
+                            <span class="price">$8.99</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn-preview" onclick="openPreview('Almuerzo Criollo', '$8.99', 'Plato principal con carne, arroz, habichuelas y complemento del día.')">👁️ Ver</button>
+                            <button class="btn-add-cart" onclick="addToCart('Almuerzo Criollo del Día', 8.99)">+ Agregar</button>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="#calculadora" class="btn-next">Siguiente: Cotizador de Bizcocho &rarr;</a>
+            </div>
+        </section>
+
+        <!-- NUEVA PÁGINA INTERACTIVA: CALCULADORA DE BIZCOCHOS -->
+        <section id="calculadora" class="page-section">
+            <div class="card">
+                <h2>Calculadora de Bizcochos Personalizados</h2>
+                <p>Calcula un presupuesto estimado para tu evento al instante con JavaScript:</p>
+
+                <form id="cake-calc-form" class="calc-form" onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label for="cake-size">Tamaño (Número de Personas):</label>
+                        <select id="cake-size" onchange="calculateCakePrice()">
+                            <option value="25">15 - 20 Personas ($25.00)</option>
+                            <option value="45">30 - 35 Personas ($45.00)</option>
+                            <option value="75">50+ Personas ($75.00)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cake-flavor">Sabor del Bizcocho:</label>
+                        <select id="cake-flavor" onchange="calculateCakePrice()">
+                            <option value="0">Vainilla Tradicional (Incluido)</option>
+                            <option value="5">Chocolate Fudge (+$5.00)</option>
+                            <option value="8">Marmoleado Especial (+$8.00)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cake-filling">Relleno:</label>
+                        <select id="cake-filling" onchange="calculateCakePrice()">
+                            <option value="0">Pasta de Guayaba (Incluido)</option>
+                            <option value="6">Crema de Avellana (+$6.00)</option>
+                            <option value="4">Crema Pastelera (+$4.00)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-result-box">
+                        <h3>Total Estimado: <span id="cake-total">$25.00</span></h3>
+                        <button type="button" class="btn-add-cart" onclick="addCustomCakeToCart()">Agregar Bizcocho al Pedido</button>
+                    </div>
+                </form>
+
+                <a href="#multimedia" class="btn-next">Siguiente: Experiencia Multimedia &rarr;</a>
+            </div>
+        </section>
+
+        <!-- PÁGINA 3: MULTIMEDIA -->
+        <section id="multimedia" class="page-section">
+            <div class="card">
+                <h2>Experiencia Multimedia</h2>
+                <p>Demostración de etiquetas multimedia enriquecidas con control interactivo de pausa automática mediante JS.</p>
+
+                <div class="media-grid">
+                    <article class="media-box">
+                        <h3>Demostración de Video</h3>
+                        <p>Proceso de preparación artesanal:</p>
+                        <video id="video-panaderia" controls width="320" height="240">
+                            <source src="video-panaderia.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                    </article>
+
+                    <article class="media-box">
+                        <h3>Demostración de Audio</h3>
+                        <p>Sonido ambiente en cocina:</p>
+                        <audio id="audio-panaderia" controls>
+                            <source src="audio-panaderia.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </article>
+                </div>
+
+                <a href="#ventajas" class="btn-next">Siguiente: Ventajas de HTML5 &rarr;</a>
+            </div>
+        </section>
+
+        <!-- PÁGINA 4: VENTAJAS -->
+        <section id="ventajas" class="page-section">
+            <div class="card">
+                <h2>Ventajas de HTML5 y JS</h2>
+                <p>La integración de HTML5, CSS3 y JavaScript permite construir soluciones dinámicas, rápidas y funcionales:</p>
+
+                <ol class="advantages-list">
+                    <li>
+                        <strong>Estructuración Semántica:</strong> Organización limpia con etiquetas HTML5 (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, etc.).
+                    </li>
+                    <li>
+                        <strong>Estilos y Presentación:</strong> Diseño responsive, componentes modales y animaciones con CSS3.
+                    </li>
+                    <li>
+                        <strong>Dinamismo e Interacción:</strong> Manipulación en tiempo real del DOM con JavaScript (carrito, cálculo de costos, búsqueda y notificaciones).
+                    </li>
+                </ol>
+
+                <p class="external-link-container">
+                    Más información en: <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noopener">MDN Web Docs</a>.
+                </p>
+
+                <a href="#inicio" class="btn-top">&uarr; Volver al inicio</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL 1: MODAL DEL CARRITO DE COMPRAS -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleCartModal()">&times;</span>
+            <h2>🛒 Tu Pedido Actual</h2>
+            <div id="cart-items-container" class="cart-items-container">
+                <p class="empty-cart-msg">Tu pedido está vacío actualmente.</p>
+            </div>
+            <div class="cart-footer">
+                <h3>Total: <span id="cart-total">$0.00</span></h3>
+                <button class="btn-whatsapp" onclick="sendOrderWhatsApp()">📱 Enviar Pedido por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: VISTA PREVIA DEL PRODUCTO (LIGHTBOX) -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePreview()">&times;</span>
+            <h2 id="preview-title">Detalles del Producto</h2>
+            <p id="preview-price" class="preview-price-tag"></p>
+            <p id="preview-desc"></p>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN TOAST FLOTANTE -->
+    <div id="toast" class="toast">¡Producto agregado al carrito!</div>
+
+    <footer>
+        <p>&copy; 2026 Panadería y Repostería La Primera | Proyecto de Laboratorio HTML5, CSS3 & JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
