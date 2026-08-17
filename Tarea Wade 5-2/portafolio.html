@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio | Mi Sitio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-info" href="index.html"><i class="bi bi-code-slash me-2"></i>DevStudio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="portafolio.html">Portafolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Encabezado de Sección -->
+  <div class="bg-light py-5 mb-5 border-bottom">
+    <div class="container text-center">
+      <h1 class="fw-bold">Mis Proyectos Destacados</h1>
+      <p class="lead text-muted">Una muestra de mis trabajos más recientes en desarrollo web y diseño de software.</p>
+    </div>
+  </div>
+
+  <!-- Rejilla de Proyectos / Artículos -->
+  <main class="container mb-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      
+      <!-- Proyecto 1 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Dashboard Empresarial">
+          <div class="card-body">
+            <span class="badge bg-primary mb-2">Web App</span>
+            <h5 class="card-title fw-bold">Dashboard de Analítica</h5>
+            <p class="card-text text-muted">Plataforma web para visualización de datos en tiempo real con reportes automáticos y gestión de métricas clave.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a href="#" class="btn btn-outline-primary w-100">Leer más <i class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 2 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1556742049-0a67d577c7ed?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="E-commerce App">
+          <div class="card-body">
+            <span class="badge bg-success mb-2">E-Commerce</span>
+            <h5 class="card-title fw-bold">Tienda Virtual de Moda</h5>
+            <p class="card-text text-muted">Tienda en línea completa con pasarela de pagos integrada, catálogo dinámico y panel de administración.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a href="#" class="btn btn-outline-primary w-100">Leer más <i class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 3 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="App Móvil">
+          <div class="card-body">
+            <span class="badge bg-warning text-dark mb-2">Mobile First</span>
+            <h5 class="card-title fw-bold">App de Gestión de Tareas</h5>
+            <p class="card-text text-muted">Aplicación web progresiva (PWA) para optimizar la productividad personal con soporte offline.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a href="#" class="btn btn-outline-primary w-100">Leer más <i class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-auto">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 DevStudio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
