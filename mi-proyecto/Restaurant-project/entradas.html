@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- HTML5 Semántico: Encabezado y metadatos -->
+  <title>Sabor & Tradición | Entradas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Encabezado Semántico -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">🍽️ Sabor & Tradición</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="entradas.html">Entradas</a></li>
+            <li class="nav-item"><a class="nav-link" href="platos-fuertes.html">Platos Fuertes</a></li>
+            <li class="nav-item"><a class="nav-link" href="postres.html">Postres</a></li>
+            <li class="nav-item"><a class="nav-link" href="bebidas.html">Bebidas</a></li>
+            <li class="nav-item"><a class="nav-link" href="reservas.html">Reservas</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="container my-5">
+    <section class="text-center mb-5">
+      <h1 class="display-4 font-bold">Nuestras Entradas</h1>
+      <p class="lead text-muted">Apertitantes seleccionados para comenzar la experiencia gastronómica.</p>
+    </section>
+
+    <!-- Tarjetas Interactivas con JS (Módulo 6) -->
+    <section class="row g-4">
+      <div class="col-md-4">
+        <article class="card h-100 dish-card shadow-sm" 
+                 data-name="Ceviche Mixto" 
+                 data-description="Pescado fresco y mariscos marinados en jugo de lima con cebolla morada y cilantro." 
+                 data-price="$16.00" 
+                 data-image="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=500">
+          <img src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=500" class="card-img-top" alt="Ceviche Mixto">
+          <div class="card-body">
+            <h5 class="card-title">Ceviche Mixto</h5>
+            <p class="card-text text-muted">Haz clic para ver más información.</p>
+            <span class="badge bg-danger fs-6">$16.00</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-4">
+        <article class="card h-100 dish-card shadow-sm" 
+                 data-name="Tabla de Quesos y Embutidos" 
+                 data-description="Selección artesanal de quesos madurados, jamón ibérico, frutos secos y mermeladas." 
+                 data-price="$22.00" 
+                 data-image="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500">
+          <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500" class="card-img-top" alt="Tabla de Quesos">
+          <div class="card-body">
+            <h5 class="card-title">Tabla de Quesos y Embutidos</h5>
+            <p class="card-text text-muted">Haz clic para ver más información.</p>
+            <span class="badge bg-danger fs-6">$22.00</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Interactivo -->
+  <div class="modal fade" id="dishDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDishTitle">Detalle</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="modalDishImg" src="" class="img-fluid rounded mb-3" alt="Plato">
+          <p id="modalDishDesc" class="lead"></p>
+          <h4 id="modalDishPrice" class="text-danger fw-bold"></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-4 bg-custom-dark text-white mt-5">
+    <p class="mb-0">&copy; 2026 Restaurante Sabor & Tradición.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
