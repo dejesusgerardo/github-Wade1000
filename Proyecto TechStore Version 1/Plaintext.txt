@@ -1,0 +1,19 @@
+techstore-project/
+│
+├── index.html                (Página principal con Carrusel y Productos)
+├── contacto.html             (Página 1 de 10 - Formulario con validación JS)
+├── laptops.html              (Página 2 de 10)
+├── smartphones.html          (Página 3 de 10)
+├── accesorios.html           (Página 4 de 10)
+├── ofertas.html              (Página 5 de 10)
+├── sobre-nosotros.html       (Página 6 de 10)
+├── soporte.html              (Página 7 de 10)
+├── carrito.html              (Página 8 de 10)
+├── politicas.html            (Página 9 de 10)
+├── preguntas-frecuentes.html (Página 10 de 10)
+│
+├── css/
+│   └── styles.css            (Estilos personalizados y buenas prácticas CSS)
+│
+└── js/
+    └── main.js               (Interacciones, efectos hover/click y validación)

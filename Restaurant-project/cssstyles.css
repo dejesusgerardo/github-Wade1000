@@ -1,0 +1,71 @@
+/* ==================================================
+   ESTILOS PERSONALIZADOS - RESTAURANTE SABOR & TRADICIÓN
+   ================================================== */
+
+:root {
+  --primary-color: #8b0000; /* Rojo Borgoña */
+  --secondary-color: #d4af37; /* Dorado Gourmet */
+  --dark-bg: #1a1a1a;
+  --light-bg: #f8f9fa;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: #333;
+}
+
+/* Header & Navegación */
+.navbar-brand {
+  font-weight: bold;
+  color: var(--secondary-color) !important;
+}
+
+.bg-custom-dark {
+  background-color: var(--dark-bg);
+}
+
+/* Carrusel */
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Interacción con Productos / Platillos (Módulo 6) */
+.dish-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+}
+
+/* Resaltar productos al pasar el ratón (Hover) */
+.dish-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+  border-color: var(--secondary-color);
+}
+
+/* Botones Personalizados */
+.btn-gold {
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-gold:hover {
+  background-color: #b8962e;
+  color: #fff;
+}
+
+/* Modal de Detalles */
+.modal-header {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-bg);
+  color: #ccc;
+}
